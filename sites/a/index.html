@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Daily Sheet</title>
+<meta name="description" content="Daily Sheet - Roz ka hisaab, ek jagah">
+<meta name="theme-color" content="#f7efe4">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="in">
+  <header class="card top">
+    <div class="brand">
+      <div class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div>
+      <div><h1>Daily Sheet</h1><p class="sub">Roz ka hisaab, ek jagah</p></div>
+    </div>
+    <button id="themeBtn" type="button" aria-expanded="false" aria-controls="tp">Themes</button>
+    <div class="tp" id="tp" hidden></div>
+  </header>
+
+  <section id="listView" class="stack" aria-label="Dates">
+    <h2>Choose a date</h2>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <div id="sheetView" class="stack" hidden>
+    <section class="card">
+      <button id="back" type="button">&larr; All dates</button>
+      <div class="dt">
+        <div><span class="pill" id="pill">Today</span><div class="date" id="dateTxt"></div></div>
+        <div class="tl"><label class="l" for="title">Title</label><input type="text" id="title" placeholder="e.g. Shop expenses"></div>
+      </div>
+    </section>
+
+    <section class="card tools" aria-label="Tools">
+      <div class="row" role="toolbar" aria-label="Text style">
+        <div class="grp"><span>Style</span><button id="bold" type="button" style="font-weight:800" aria-label="Bold">B</button></div>
+        <div class="grp" id="tc"><span>Text colour</span></div>
+        <div class="grp" id="hc"><span>Highlight</span></div>
+        <label class="chk"><input type="checkbox" id="wr">Whole row</label>
+        <button id="clr" type="button">Clear style</button>
+      </div>
+      <div class="row">
+        <div class="grp"><label for="sym">Currency</label>
+          <select id="sym"><option value="₹">₹ Rupee</option><option value="$">$ Dollar</option><option value="€">€ Euro</option><option value="">None</option></select></div>
+        <button id="sort" type="button">Sort high to low</button>
+        <button id="copy" type="button">Copy summary</button>
+        <button id="clrDay" type="button">Clear day</button>
+        <button id="delDay" type="button">Delete day</button>
+      </div>
+      <p class="hint" id="hint">Click a cell, then pick bold, a colour or a highlight.</p>
+    </section>
+
+    <section class="card">
+      <div class="tw"><table><thead><tr id="hr"></tr></thead><tbody id="tb"></tbody><tfoot><tr id="ft"></tr></tfoot></table></div>
+      <div class="actions">
+        <button id="addRow" class="pri" type="button">+ Add row</button>
+        <button id="addCol" type="button">+ Add column</button>
+      </div>
+    </section>
+
+    <div class="tiles">
+      <div class="tile big"><span>Total amount</span><b id="gt">0</b></div>
+      <div class="tile"><span>Entries</span><b id="cnt">0</b></div>
+      <div class="tile"><span>Highest</span><b id="hi">0</b></div>
+      <div class="tile"><span>Average</span><b id="avg">0</b></div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
